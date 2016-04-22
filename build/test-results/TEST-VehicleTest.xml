@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="VehicleTest" tests="38" skipped="0" failures="0" errors="0" timestamp="2016-04-22T06:18:50" hostname="GRAHAM-XPS" time="0.095">
+  <properties/>
+  <testcase name="testOdometer1" classname="VehicleTest" time="0.002"/>
+  <testcase name="testOdometer2" classname="VehicleTest" time="0.0"/>
+  <testcase name="testVehicleSpeed1" classname="VehicleTest" time="0.002"/>
+  <testcase name="testVehicleSpeed2" classname="VehicleTest" time="0.001"/>
+  <testcase name="testFuel1" classname="VehicleTest" time="0.0"/>
+  <testcase name="testFuel2" classname="VehicleTest" time="0.001"/>
+  <testcase name="testMPG0" classname="VehicleTest" time="0.013"/>
+  <testcase name="testMPG1" classname="VehicleTest" time="0.002"/>
+  <testcase name="testMPG2" classname="VehicleTest" time="0.001"/>
+  <testcase name="testMPG3" classname="VehicleTest" time="0.001"/>
+  <testcase name="testMPG4" classname="VehicleTest" time="0.0"/>
+  <testcase name="testMPG5" classname="VehicleTest" time="0.003"/>
+  <testcase name="testVehicleValid" classname="VehicleTest" time="0.002"/>
+  <testcase name="testVehicleEfficiency1" classname="VehicleTest" time="0.003"/>
+  <testcase name="testVehicleEfficiency2" classname="VehicleTest" time="0.002"/>
+  <testcase name="testVehicleMPG1" classname="VehicleTest" time="0.003"/>
+  <testcase name="testVehicleMPG2" classname="VehicleTest" time="0.001"/>
+  <testcase name="testVehicleName" classname="VehicleTest" time="0.002"/>
+  <testcase name="testVehicleCapacity1" classname="VehicleTest" time="0.0"/>
+  <testcase name="testVehicleCapacity2" classname="VehicleTest" time="0.002"/>
+  <testcase name="testFinalLap" classname="VehicleTest" time="0.001"/>
+  <testcase name="testRefuel1" classname="VehicleTest" time="0.001"/>
+  <testcase name="testRefuel2" classname="VehicleTest" time="0.002"/>
+  <testcase name="testRefuel3" classname="VehicleTest" time="0.001"/>
+  <testcase name="testVehicleLowSpeed1" classname="VehicleTest" time="0.001"/>
+  <testcase name="testVehicleLowSpeed2" classname="VehicleTest" time="0.001"/>
+  <testcase name="testDrive1" classname="VehicleTest" time="0.0"/>
+  <testcase name="testDrive2" classname="VehicleTest" time="0.001"/>
+  <testcase name="testDrive3" classname="VehicleTest" time="0.001"/>
+  <testcase name="testDrive4" classname="VehicleTest" time="0.002"/>
+  <testcase name="testDrive5" classname="VehicleTest" time="0.002"/>
+  <testcase name="testDrive6" classname="VehicleTest" time="0.002"/>
+  <testcase name="testDrive7" classname="VehicleTest" time="0.002"/>
+  <testcase name="testDrive8" classname="VehicleTest" time="0.001"/>
+  <testcase name="testVehicleHighLowSpeed1" classname="VehicleTest" time="0.001"/>
+  <testcase name="testVehicleHighLowSpeed2" classname="VehicleTest" time="0.003"/>
+  <testcase name="testVehicleHighSpeed1" classname="VehicleTest" time="0.002"/>
+  <testcase name="testVehicleHighSpeed2" classname="VehicleTest" time="0.001"/>
+  <system-out><![CDATA[Vehicle must have a maximum speed greater than zero.
+
+Vehicle must have a maximum speed greater than zero.
+
+3.0
+3.0
+3
+2.97
+2.0
+2
+4.5
+4.0
+4
+3.0
+3.0
+3
+1.0
+1.0
+1
+3.0
+3.0
+3
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
