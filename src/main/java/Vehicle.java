@@ -1,9 +1,14 @@
+import org.apache.log4j.Logger;
+
 /**
  * Defines a basic vehicle for range testing
  * @author Graham Home
  *
  */
 public class Vehicle {
+    private Logger logger = Logger.getLogger(this.getClass());
+    
+    
 	private String name;
 	private float maxSpeed;	// Max speed in miles/hour
 	private float mpg;		// Fuel economy in miles/gallon
@@ -18,7 +23,9 @@ public class Vehicle {
 	public Vehicle(String name, int maxSpeed, int mpg, int maxFuel, int efficiencyPct, int lowCutoff, int highCutoff) throws IllegalArgumentException {
 		this.name = name.trim();
 		if (!this.name.matches("^[a-zA-Z0-9]*$")) {
-			throw new IllegalArgumentException("Vehicle name must contain alphanumeric characters only.\n");
+		    String message = "Vehicle name must contain alphanumeric characters only.\n";
+		    logger.error(message);
+			throw new IllegalArgumentException(message);
 		}
 		this.maxSpeed = maxSpeed;
 		if (this.maxSpeed <= 0) {
@@ -135,19 +142,5 @@ public class Vehicle {
 	 */
 	public int odometer() {
 		return Math.round(odometer);
-	}
-	
-	/**
-	 * Success/Error messages.
-	 */
-	public static String returnCode(int code) { 
-		switch (code) {
-		case 0: return "You have arrived at your destination.\n";
-		case 1: return "Error: Requested speed exceeds maximum speed.\n";
-		case 2: return "Error: Requested speed must be greater than zero.\n";
-		case 3: return "Error: Requested distance must be greater than 0.\n";
-		case 4: return "Vehicle ran out of fuel before reaching its destination.\n";
-		default: return "Invalid error code.\n";
-		}
 	}
 }

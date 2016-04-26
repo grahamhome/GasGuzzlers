@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +10,9 @@ import org.junit.Test;
  *
  */
 public class VehicleTest {
-	
+
+    private Logger logger = Logger.getLogger(this.getClass());
+    
 	//Test vehicles
 	private Vehicle testCar;
 	private Vehicle testPlane;
@@ -33,7 +36,9 @@ public class VehicleTest {
 	
 	@Before
 	public void setUp() {
+	    logger.info("here i am at info about to reset");
 		reset();
+		logger.debug("i just reset");
 	}
 
 	@Test
@@ -56,16 +61,6 @@ public class VehicleTest {
 			assertEquals("Vehicle must have a maximum speed greater than zero.\n", e.getMessage());
 		}
 	}
-	@Test
-	public void testVehicleSpeed2() {
-		try {
-			Vehicle v = new Vehicle("Car", -1, 0, 0, 0, 0, 0);
-			fail("No exception thrown.");
-		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-			assertEquals("Vehicle must have a maximum speed greater than zero.\n", e.getMessage());
-		}
-	}
 	
 	@Test
 	public void testVehicleMPG1() {
@@ -77,30 +72,11 @@ public class VehicleTest {
 		}
 	}
 	
-	@Test
-	public void testVehicleMPG2() {
-		try {
-			Vehicle v = new Vehicle("Car", 10, -1, 0, 0, 0, 0);
-			fail("No exception thrown.");
-		} catch (IllegalArgumentException e) {
-			assertEquals("Vehicle must have a MPG rating greater than zero.\n", e.getMessage());
-		}
-	}
 	
 	@Test
 	public void testVehicleCapacity1() {
 		try {
 			Vehicle v = new Vehicle("Car", 10, 10, 0, 0, 0, 0);
-			fail("No exception thrown.");
-		} catch (IllegalArgumentException e) {
-			assertEquals("Vehicle must have a fuel capacity greater than zero.\n", e.getMessage());
-		}
-	}
-	
-	@Test
-	public void testVehicleCapacity2() {
-		try {
-			Vehicle v = new Vehicle("Car", 10, 10, -1, 0, 0, 0);
 			fail("No exception thrown.");
 		} catch (IllegalArgumentException e) {
 			assertEquals("Vehicle must have a fuel capacity greater than zero.\n", e.getMessage());
@@ -189,15 +165,6 @@ public class VehicleTest {
 		}
 	}
 	
-	@Test
-	public void testVehicleHighLowSpeed2() {
-		try {
-			Vehicle v = new Vehicle("Car", 10, 10, 10, 10, 5, 5);
-			fail("No exception thrown.");
-		} catch (IllegalArgumentException e) {
-			assertEquals("High speed threshold must be greater than low speed threshold.\n", e.getMessage());
-		}
-	}
 	
 	@Test
 	public void testVehicleValid() {
@@ -251,87 +218,81 @@ public class VehicleTest {
 	
 	@Test
 	public void testMPG0() {
-		assertTrue(3 == testBoat1.getAdjustedMPG(4));
-		
-	}
-	
-	@Test
-	public void testMPG1() {
-		assertTrue(3 == testBoat2.getAdjustedMPG(4));
+		assertEquals(3, testBoat1.getAdjustedMPG(4));
 		
 	}
 	
 	@Test
 	public void testMPG2() {
-		assertTrue(5 == testBoat3.getAdjustedMPG(1));
+		assertEquals(5, testBoat3.getAdjustedMPG(1));
 		
 	}
 	@Test
 	public void testMPG3() {
-		assertTrue(3 == testBoat3.getAdjustedMPG(2));
+	    assertEquals(3, testBoat3.getAdjustedMPG(2));
 		
 	}
 	
 	@Test
 	public void testMPG4() {
-		assertTrue(1 == testBoat4.getAdjustedMPG(4));
+	    assertEquals(1, testBoat4.getAdjustedMPG(4));
 		
 	}
 	
 	@Test
 	public void testMPG5() {
-		assertTrue(3 == testBoat4.getAdjustedMPG(3));
+	    assertEquals(3, testBoat4.getAdjustedMPG(3));
 		
 	}
 	
 	@Test
 	public void testFuel1() {
 		testCar.drive(15, 3);
-		assertTrue(5 == testCar.fuelGauge());
+		assertEquals(5, testCar.fuelGauge());
 	}
 	
 	@Test
 	public void testFuel2() {
 		testCar.drive(30, 3);
-		assertTrue(0 == testCar.fuelGauge());
+		assertEquals(0, testCar.fuelGauge());
 	}
 	
 	@Test
 	public void testOdometer1() {
-		assertTrue(0 == testCar.odometer());
+	    assertEquals(0, testCar.odometer());
 	}
 	
 	@Test
 	public void testOdometer2() {
 		testCar.drive(10,3);
-		assertTrue(10 == testCar.odometer());
+		assertEquals(10, testCar.odometer());
 	}
 	
 	@Test
 	public void testFinalLap() {
 		testCar.drive(40,3);
-		assertTrue(30 == testCar.finalLap());
+		assertEquals(30, testCar.finalLap());
 	}
 	
 	@Test
 	public void testRefuel1() {
 		testCar.drive(30, 3);
 		testCar.refuel();
-		assertTrue(10 == testCar.fuelGauge());
+		assertEquals(10, testCar.fuelGauge());
 	}
 	
 	@Test
 	public void testRefuel2() {
 		testCar.drive(30, 3);
 		testCar.refuel();
-		assertTrue(0 == testCar.finalLap());
+		assertEquals(0, testCar.finalLap());
 	}
 	
 	@Test
 	public void testRefuel3() {
 		testCar.drive(30, 3);
 		testCar.refuel();
-		assertTrue(0 == testCar.odometer());
+		assertEquals(0, testCar.odometer());
 	}
 	
 }
